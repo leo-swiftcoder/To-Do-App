@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TodoDataListViewController" customModule="To_Do_App" customModuleProvider="target">
+            <connections>
+                <outlet property="listTableview" destination="VsO-tF-8ah" id="aie-UR-vQH"/>
+                <outlet property="segmentController" destination="6fO-Bz-n9O" id="5e2-ZE-bE0"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nve-Py-XeE">
+                    <rect key="frame" x="0.0" y="44" width="414" height="95"/>
+                    <subviews>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6fO-Bz-n9O">
+                            <rect key="frame" x="8" y="56" width="398" height="32"/>
+                            <segments>
+                                <segment title="Today"/>
+                                <segment title="Tomorrow"/>
+                                <segment title="Upcoming"/>
+                            </segments>
+                            <connections>
+                                <action selector="recurranceChangedWithSender:" destination="-1" eventType="valueChanged" id="BAg-jQ-lNL"/>
+                            </connections>
+                        </segmentedControl>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNc-93-5d6">
+                            <rect key="frame" x="366" y="8" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="7eY-Dh-07K"/>
+                                <constraint firstAttribute="width" constant="40" id="iyz-mk-Ca5"/>
+                            </constraints>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" image="plus" catalog="system"/>
+                            <connections>
+                                <action selector="addTaskBtnTapped:" destination="-1" eventType="touchUpInside" id="lMf-fN-7VI"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To Do List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcC-qQ-sMz">
+                            <rect key="frame" x="8" y="8" width="78.5" height="21"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBlueColor"/>
+                    <constraints>
+                        <constraint firstItem="pcC-qQ-sMz" firstAttribute="leading" secondItem="nve-Py-XeE" secondAttribute="leading" constant="8" id="1Eg-qm-Bpy"/>
+                        <constraint firstItem="6fO-Bz-n9O" firstAttribute="centerX" secondItem="nve-Py-XeE" secondAttribute="centerX" id="29m-4d-dep"/>
+                        <constraint firstAttribute="trailing" secondItem="kNc-93-5d6" secondAttribute="trailing" constant="8" id="JRI-WH-OrS"/>
+                        <constraint firstAttribute="trailing" secondItem="6fO-Bz-n9O" secondAttribute="trailing" constant="8" id="ROb-d7-bxu"/>
+                        <constraint firstAttribute="bottom" secondItem="6fO-Bz-n9O" secondAttribute="bottom" constant="8" id="Reh-Rf-Oha"/>
+                        <constraint firstItem="kNc-93-5d6" firstAttribute="top" secondItem="nve-Py-XeE" secondAttribute="top" constant="8" id="aAb-Kx-XF7"/>
+                        <constraint firstItem="pcC-qQ-sMz" firstAttribute="top" secondItem="nve-Py-XeE" secondAttribute="top" constant="8" id="aiI-GK-CAO"/>
+                        <constraint firstItem="6fO-Bz-n9O" firstAttribute="leading" secondItem="nve-Py-XeE" secondAttribute="leading" constant="8" id="jGH-NH-N06"/>
+                        <constraint firstItem="6fO-Bz-n9O" firstAttribute="top" secondItem="kNc-93-5d6" secondAttribute="bottom" constant="8" id="wuc-cZ-cMv"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VsO-tF-8ah">
+                    <rect key="frame" x="0.0" y="139" width="414" height="723"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="VsO-tF-8ah" secondAttribute="bottom" id="8AF-gZ-Prd"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="VsO-tF-8ah" secondAttribute="trailing" id="92C-pz-gjT"/>
+                <constraint firstItem="VsO-tF-8ah" firstAttribute="top" secondItem="nve-Py-XeE" secondAttribute="bottom" id="Na6-CU-83g"/>
+                <constraint firstItem="VsO-tF-8ah" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="OWL-UV-gvT"/>
+                <constraint firstItem="nve-Py-XeE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="OaB-dd-oWp"/>
+                <constraint firstItem="nve-Py-XeE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="PYs-gK-8gR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nve-Py-XeE" secondAttribute="trailing" id="hPs-U1-s8k"/>
+            </constraints>
+            <point key="canvasLocation" x="54" y="74"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
